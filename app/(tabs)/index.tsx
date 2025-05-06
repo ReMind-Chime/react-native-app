@@ -12,7 +12,7 @@ export default function Page() {
             </View>
 
             {/* Botón flotante */}
-            <Link href="/newmed" asChild>
+            <Link href="/" asChild>
                 <Pressable
                     style={{
                         position: "absolute",
