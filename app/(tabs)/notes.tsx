@@ -1,9 +1,10 @@
 import {StyleSheet, View, Text} from "react-native";
+import {ThemedText} from "@/components/ThemedText";
 
 export default function Page() {
   return (
       <View style={styles.container}>
-        <Text>Notes Screen</Text>
+        <ThemedText>Notes Screen</ThemedText>
       </View>
   )
 }

@@ -20,6 +20,7 @@ const MAPPING = {
   'chart.bar': 'bar-chart',
   'gear' : 'settings',
   'plus': 'add',
+  'calendar': 'event',
 } as IconMapping;
 
 /**

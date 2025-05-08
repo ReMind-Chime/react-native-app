@@ -1,9 +1,10 @@
 import {StyleSheet, View, Text} from "react-native";
+import {ThemedText} from "@/components/ThemedText";
 
 export default function Page() {
   return (
       <View style={styles.container}>
-        <Text>Stats Screen</Text>
+        <ThemedText>Stats Screen</ThemedText>
       </View>
   )
 }
