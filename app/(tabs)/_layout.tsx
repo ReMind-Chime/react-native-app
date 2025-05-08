@@ -11,27 +11,27 @@ export default function TabLayout() {
     const index = [
         {
             title: 'Home',
-            name: 'index',
+            name: 'home/index',
             icon: 'house.fill',
         },
         {
             title: 'Medicine',
-            name: 'medicine',
+            name: 'medicine/index',
             icon: 'bandage',
         },
         {
             title: 'Notes',
-            name: 'notes',
+            name: 'notes/index',
             icon: 'square.and.pencil',
         },
         {
             title: 'Stats',
-            name: 'stats',
+            name: 'stats/index',
             icon: 'chart.bar',
         },
         {
             title: 'Settings',
-            name: 'settings',
+            name: 'settings/index',
             icon: 'gear',
         },
     ]
