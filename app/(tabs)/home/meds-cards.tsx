@@ -1,4 +1,4 @@
-import {FlatList, Platform, ScrollView, Text, View} from "react-native";
+import {FlatList, Platform, Text, View} from "react-native";
 import {ThemedText} from "@/components/ThemedText";
 import {Image} from "expo-image";
 import {Checkbox} from "expo-checkbox";
