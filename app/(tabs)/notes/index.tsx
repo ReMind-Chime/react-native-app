@@ -19,7 +19,7 @@ export default function Page() {
       <NotesList notes={exampleNotes} />
 
       <View style={styles.addButtonWrapper}>
-        <AddButton onPress={() => console.log("Agregar nuevo recordatorio")} />
+        <AddButton/>
       </View>
     </View>
   );
