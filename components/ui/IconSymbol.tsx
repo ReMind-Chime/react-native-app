@@ -18,10 +18,12 @@ const MAPPING = {
   'bandage': 'healing',
   'square.and.pencil': 'edit',
   'chart.bar': 'bar-chart',
-  'gear' : 'settings',
+  'gear': 'settings',
   'plus': 'add',
   'calendar': 'event',
-} as IconMapping;
+  'trash': 'delete',
+  'pencil':'edit',
+} as unknown as IconMapping;
 
 /**
  * An icon component that uses native SF Symbols on iOS, and Material Icons on Android and web.
