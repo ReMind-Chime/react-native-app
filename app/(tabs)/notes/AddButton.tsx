@@ -1,22 +1,16 @@
 import { TouchableOpacity, StyleSheet, View } from "react-native";
 import { IconSymbol } from "@/components/ui/IconSymbol";
+import { Link } from "expo-router";
 
-export function AddButton({ onPress }: { onPress: () => void }) {
+export function AddButton() {
   return (
-    <View style={styles.container}>
-      <TouchableOpacity style={styles.button} onPress={onPress}>
-        <IconSymbol name="plus" size={28} color="#ffffff" />
-      </TouchableOpacity>
-    </View>
+    <Link href="/notesform" style={styles.button}>
+      <IconSymbol name="plus" size={28} color="#ffffff" />
+    </Link>
   );
 }
 
 const styles = StyleSheet.create({
-  container: {
-    width: "100%",
-    alignItems: "center",
-    paddingVertical: 20,
-  },
   button: {
     backgroundColor: "#6200ea",
     borderRadius: 60,

@@ -18,13 +18,15 @@ const MAPPING = {
   'bandage': 'healing',
   'square.and.pencil': 'edit',
   'chart.bar': 'bar-chart',
-  'gear' : 'settings',
+  'gear': 'settings',
   'plus': 'add',
   'calendar': 'event',
-  'rectangle.portrait.and.arrow.right' : 'logout',
-  'questionmark.circle' : 'help',
-  'chevron.right' : 'chevron-right',
-  'star.fill' : 'star',
+  'rectangle.portrait.and.arrow.right': 'logout',
+  'questionmark.circle': 'help',
+  'chevron.right': 'chevron-right',
+  'star.fill': 'star',
+  'trash': 'delete',
+  'pencil': 'edit',
 } as IconMapping;
 
 /**
