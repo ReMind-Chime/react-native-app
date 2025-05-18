@@ -21,6 +21,10 @@ const MAPPING = {
   'gear' : 'settings',
   'plus': 'add',
   'calendar': 'event',
+  'rectangle.portrait.and.arrow.right' : 'logout',
+  'questionmark.circle' : 'help',
+  'chevron.right' : 'chevron-right',
+  'star.fill' : 'star',
 } as IconMapping;
 
 /**
