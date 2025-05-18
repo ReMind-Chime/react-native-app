@@ -24,7 +24,7 @@ const StyledImage = cssInterop(Image, {
     className: 'style',
 })
 
-export function MedCard({ imageURI, med, dosage, nextDose }: SingleMedCardProps) {
+export function MedCard({imageURI, med, dosage, nextDose}: SingleMedCardProps) {
     const defaultImageURI = imageURI || 'https://static.vecteezy.com/system/resources/previews/005/259/960/non_2x/medicine-drugs-box-free-vector.jpg';
     const [checked, setChecked] = useState(false);
 
@@ -47,21 +47,17 @@ export function MedCard({ imageURI, med, dosage, nextDose }: SingleMedCardProps)
     );
 }
 
-export function MedCards({ MedCardsArray, className }: MedCardsProps) {
+export function MedCards({MedCardsArray, className}: MedCardsProps) {
     let index = 0;
 
     return (
         <FlatList
             className={cn(
                 'flex-1',
-                {
-                    'mb-[80]': Platform.OS !== 'ios',
-                    'mb-[20]': Platform.OS === 'ios',
-                },
                 className,
             )}
             data={MedCardsArray}
-            renderItem={({ item }) => (
+            renderItem={({item}) => (
                 <MedCard
                     imageURI={item.imageURI}
                     med={item.med}

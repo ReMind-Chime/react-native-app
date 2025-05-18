@@ -21,9 +21,13 @@ const MAPPING = {
   'gear': 'settings',
   'plus': 'add',
   'calendar': 'event',
+  'rectangle.portrait.and.arrow.right': 'logout',
+  'questionmark.circle': 'help',
+  'chevron.right': 'chevron-right',
+  'star.fill': 'star',
   'trash': 'delete',
-  'pencil':'edit',
-} as unknown as IconMapping;
+  'pencil': 'edit',
+} as IconMapping;
 
 /**
  * An icon component that uses native SF Symbols on iOS, and Material Icons on Android and web.

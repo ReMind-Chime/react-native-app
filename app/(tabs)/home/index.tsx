@@ -1,7 +1,7 @@
 import {ThemedText} from "@/components/ThemedText";
-import {View} from "react-native";
 import {MedCards} from "@/app/(tabs)/home/meds-cards";
-import {useEffect, useState} from "react";
+import {useState} from "react";
+import {MainView} from "@/components/MainView";
 
 const array = [
     {
@@ -60,14 +60,9 @@ export default function Page() {
     const [meds, setMeds] = useState(array);
 
     return (
-        <View className="flex-1">
-
-            {/* Contenido */}
-            <View className="flex-1 flex-cols gap-4 p-5">
-                <ThemedText type={'title'}>Medicina para hoy:</ThemedText>
-                <MedCards MedCardsArray={meds}/>
-            </View>
-
-        </View>
+        <MainView className="flex-cols gap-4">
+            <ThemedText type={'title'}>Medicina para hoy:</ThemedText>
+            <MedCards MedCardsArray={meds}/>
+        </MainView>
     );
 }
