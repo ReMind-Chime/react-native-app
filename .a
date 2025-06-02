@@ -1,0 +1,12 @@
+import { View, Image } from "react-native";
+import { ThemedText } from "@/components/ThemedText";
+
+const StreakComponent = () => {
+  return (
+    <View className="w-1/2 h-1/3 dark:border-2 dark:border-white">
+      <ThemedText>Lunes</ThemedText>
+    </View>
+  );
+};
+
+export default StreakComponent;

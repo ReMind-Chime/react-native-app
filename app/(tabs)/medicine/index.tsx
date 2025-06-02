@@ -4,7 +4,7 @@ import {ThemedText} from "@/components/ThemedText";
 export default function Page() {
   return (
       <View style={styles.container}>
-        <ThemedText>Medicine Screen</ThemedText>
+        <ThemedText >Medicine Screen</ThemedText>
       </View>
   )
 }
