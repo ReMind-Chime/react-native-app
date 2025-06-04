@@ -31,7 +31,7 @@ export function NotesList({ notes }: NoteListProps) {
               <TouchableOpacity onPress={() => console.log(`Eliminar ${item.id}`)} style={styles.button}>
                 <IconSymbol name="trash" size={24} color="#d32f2f" />
               </TouchableOpacity>
-              <TouchableOpacity onPress={() => router.push({ pathname: "/notesform", params: { title: item.title, date: item.date, time: item.time } })} style={styles.button}>
+              <TouchableOpacity onPress={() => router.push({ pathname: "../notesform", params: { title: item.title, date: item.date, time: item.time } })} style={styles.button}>
                 <IconSymbol name="pencil" size={24} color="#1976d2" />
               </TouchableOpacity>
             </View>

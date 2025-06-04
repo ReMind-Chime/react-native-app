@@ -1,5 +1,5 @@
 import {Platform, View} from "react-native";
-import {cn} from "@/components/tailwind-merge";
+import {cn} from "@/utils/tailwind-merge";
 
 export function MainView({children, className}: {children: React.ReactNode, className?: string}) {
     return (
