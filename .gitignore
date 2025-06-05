@@ -44,3 +44,7 @@ app-example
 
 # JetBrains IDEs
 .idea/
+
+# Compiled source #
+android/
+ios/
