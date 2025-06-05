@@ -6,4 +6,5 @@ export default class Notes extends Model {
 
     @field('title') title!: string;
     @field('content') content!: string;
+    @field('created_at') createdAt!: number;
 }
