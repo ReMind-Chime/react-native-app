@@ -5,7 +5,7 @@ const PieComponent = () => {
   return (
     <View className="w-96 h-1/4 mx-auto border-2 dark:border-[#ffffff] p-4 rounded-xl flex flex-row gap-4">
       <Image
-        source={require("../assets/pieChart.png")}
+        source={require("@/assets/stats/pieChart.png")}
         className="h-full w-1/2 object-contain"
         resizeMode="contain"
       />

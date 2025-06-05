@@ -5,12 +5,12 @@ const omissionsData = [
   {
     medication: "Loratadina",
     date: new Date(2025, 2, 6, 7, 0, 0),
-    img: require("../assets/loratadina.png"),
+    img: require("@/assets/stats/loratadina.png"),
   },
   {
     medication: "Ibuprofeno",
     date: new Date(2025, 2, 6, 8, 20, 0),
-    img: require("../assets/ibuprofeno.png"),
+    img: require("@/assets/stats/ibuprofeno.png"),
   },
 ];
 
