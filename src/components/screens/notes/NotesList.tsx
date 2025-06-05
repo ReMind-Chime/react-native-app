@@ -20,7 +20,7 @@ export function NoteComponent({note}: { note: Note }) {
     return (
         <View style={styles.noteCard}>
             <ThemedText style={{fontSize: 18, fontWeight: 'bold'}}>{note.title}</ThemedText>
-            <ThemedText className={'text-[16px] mt-3'} numberOfLines={4}>{note.content}</ThemedText>
+            <ThemedText className={'text-[16px] mt-3 text-justify'} numberOfLines={4}>{note.content}</ThemedText>
 
             <View className={'flex-row justify-between items-center mt-5'}>
                 {/* Fecha y hora de la nota */}
