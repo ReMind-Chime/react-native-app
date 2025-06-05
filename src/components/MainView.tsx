@@ -5,11 +5,8 @@ export function MainView({children, className}: {children: React.ReactNode, clas
     return (
         <View
             className={cn(
-                'flex-1 p-5',
-                {
-                    'mb-[80]': Platform.OS !== 'ios',
-                    'mb-[20]': Platform.OS === 'ios',
-                },
+                'flex-1 p-5 mb-[80]',
+                {'mb-[20]': Platform.OS === 'ios'},
                 className,
             )}
         >
