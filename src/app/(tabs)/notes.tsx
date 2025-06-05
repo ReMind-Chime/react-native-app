@@ -1,5 +1,6 @@
 import {StyleSheet, View} from "react-native";
-import {AddButton, NotesList} from "@/components/screens/notes";
+import { NotesList} from "@/components/screens/notes/NotesList";
+import {AddButton} from "@/components/AddButton";
 import {useState} from "react";
 
 

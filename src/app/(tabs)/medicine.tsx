@@ -1,7 +1,7 @@
 import { StyleSheet, View } from "react-native";
 import { useState } from "react";
 import { MedicineCards } from "@/components/screens/medicine/MedicineList";
-import { AddButton } from "@/components/screens/medicine/AddButton";
+import { AddButton } from "@/components/AddButton";
 
 const initialMedicines = [
   {
@@ -37,7 +37,7 @@ export default function Page() {
               </View>
 
               <View style={styles.addButtonWrapper}>
-                  <AddButton/>
+                  <AddButton href={"/medicineform"}/>
               </View>
         </View>
     );
