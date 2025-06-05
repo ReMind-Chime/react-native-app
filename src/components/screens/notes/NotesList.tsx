@@ -3,20 +3,43 @@ import {ThemedText} from "@/components/ThemedText";
 import {IconSymbol} from "@/components/ui/IconSymbol";
 import {TouchableOpacity} from "react-native";
 import {router} from "expo-router";
-
-interface Note {
-    id: string
-    title: string
-    content: string
-    time: string
-    date: string
-}
+import {Note} from "@/types/Notes";
+import database from "@/db";
+import Notes from "@/db/models/Notes";
 
 interface NoteListProps {
-    notes: Note[]
+    notes?: Note[]
 }
 
 export function NoteComponent({note}: { note: Note }) {
+    if (!note)
+        return null; // Si no hay nota, no renderizar nada
+
+    const date = note.createdAt ? new Date(note.createdAt) : null;
+
+    const formattedDate = date
+        ? `${date.toLocaleDateString('es-ES', {
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric',
+        })} - ${date.toLocaleTimeString('es-ES', {
+            hour: '2-digit',
+            minute: '2-digit',
+            hour12: false,
+        })}`
+        : "NaN";
+
+    const deleteNote = async (noteId: string) => {
+        const notesCollection = database.collections.get<Notes>('notes');
+        await database.write(async () => {
+            const noteToDelete = await notesCollection.find(noteId);
+            if (noteToDelete) {
+                await noteToDelete.destroyPermanently();
+            }
+        });
+        console.log("Nota eliminada:", noteId);
+    }
+
     return (
         <View style={styles.noteCard}>
             <ThemedText style={{fontSize: 18, fontWeight: 'bold'}}>{note.title}</ThemedText>
@@ -28,14 +51,14 @@ export function NoteComponent({note}: { note: Note }) {
                     className={'font-bold text-[16px]'}
                     style={{color: "#555"}}
                 >
-                    {note.date} - {note.time}
+                    {formattedDate}
                 </ThemedText>
 
                 <View className={'flex-row'}>
                     {/* Eliminar nota */}
                     <TouchableOpacity
                         style={styles.button}
-                        onPress={() => console.log(`Eliminar ${note.id}`)}
+                        onPress={() => deleteNote(note.id)}
                     >
                         <IconSymbol name="trash" size={24} color="#d32f2f"/>
                     </TouchableOpacity>
@@ -45,7 +68,7 @@ export function NoteComponent({note}: { note: Note }) {
                         style={styles.button}
                         onPress={() => router.push({
                             pathname: "/notesform",
-                            params: {title: note.title, date: note.date, time: note.time}
+                            params: {id: note.id}
                         })}
                     >
                         <IconSymbol name="pencil" size={24} color="#1976d2"/>
@@ -58,6 +81,16 @@ export function NoteComponent({note}: { note: Note }) {
 }
 
 export function NotesList({notes}: NoteListProps) {
+    if (!notes || notes.length === 0) {
+        return (
+            <View className={'flex-1 items-center justify-center'}>
+                <ThemedText className={'text-[18px] text-gray-500'}>
+                    No existen notas aún.
+                </ThemedText>
+            </View>
+        );
+    }
+
     return (
         <View className={'flex-1 px-8 mb-[9rem]'}>
             <FlatList

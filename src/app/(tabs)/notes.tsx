@@ -1,65 +1,42 @@
 import {StyleSheet, View} from "react-native";
 import { NotesList} from "@/components/screens/notes/NotesList";
 import {AddButton} from "@/components/AddButton";
-import {useState} from "react";
-
-
-const exampleNotes = [
-    {
-        id: "1",
-        title: "La Amoxicilina se debe ingerir con agua Natural",
-        content: "CContenido de ejemplo para la nota 1. Aquí puedes agregar más detalles sobre la nota.Contenido de ejemplo para la nota 1. Aquí puedes agregar más detalles sobre la nota.ontenido de ejemplo para la nota 1. Aquí puedes agregar más detalles sobre la nota.",
-        date: "03/mar",
-        time: "10:00 AM"
-    },
-    {
-        id: "2",
-        title: "El Ketorolaco no se ingiere, se pone bajo la lengua",
-        content: "Contenido de ejemplo para la nota 1. Aquí puedes agregar más detalles sobre la nota.",
-        date: "03/mar",
-        time: "10:15 AM"
-    },
-    {
-        id: "3",
-        title: "Las ampolletas de Vitamina se deben mezclar con jugo y beberse rápido",
-        content: "Contenido de ejemplo para la nota 1. Aquí puedes agregar más detalles sobre la nota.",
-        date: "03/mar",
-        time: "12:00 PM"
-    },
-    {
-        id: "4",
-        title: "Las ampolletas de Vitamina se deben mezclar con jugo y beberse rápido",
-        content: "Contenido de ejemplo para la nota 1. Aquí puedes agregar más detalles sobre la nota.",
-        date: "03/mar",
-        time: "12:00 PM"
-    },
-    {
-        id: "5",
-        title: "Las ampolletas de Vitamina se deben mezclar con jugo y beberse rápido",
-        content: "Contenido de ejemplo para la nota 1. Aquí puedes agregar más detalles sobre la nota.",
-        date: "03/mar",
-        time: "12:00 PM"
-    },
-    {
-        id: "6",
-        title: "Las ampolletas de Vitamina se deben mezclar con jugo y beberse rápido",
-        content: "Contenido de ejemplo para la nota 1. Aquí puedes agregar más detalles sobre la nota.",
-        date: "03/mar",
-        time: "12:00 PM"
-    },
-];
+import {useEffect, useState} from "react";
+import database from "@/db";
+import Notes from "@/db/models/Notes";
+import { Note as NoteType } from "@/types/Notes";
 
 export default function NotesPage() {
-    const [notes, setNotes] = useState(null)
+    const [notes, setNotes] = useState<NoteType[]>([]);
+
+    const fetchNotes = async () => {
+        const notesCollection = database.collections.get<Notes>('notes');
+        const fetchedData = await notesCollection.query().fetch();
+
+        const rawNotes = fetchedData.map(note => note._raw);
+        const formattedNotes = rawNotes.map((note) => ({
+            id: note.id,
+            title: (note as any).title,
+            content: (note as any).content,
+            createdAt: (note as any).created_at,
+        }))
+        setNotes(formattedNotes);
+    };
+
+    // Fetch notes when the component mounts
+    useEffect(() => {
+        fetchNotes()
+    }, [notes]);
 
     return (
         <View style={styles.container}>
 
-            <NotesList notes={exampleNotes}/>
+            <NotesList notes={notes}/>
 
             <View style={styles.addButtonWrapper}>
                 <AddButton href={'/(modal)/notesform'}/>
             </View>
+
         </View>
     );
 }
