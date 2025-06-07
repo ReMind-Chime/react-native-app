@@ -20,8 +20,9 @@ export default function AddNotePage({note}: { note?: NoteInterface }) {
             })
         })
 
-        const notes = await notesCollection.query().fetch();
-        console.log("Notas guardadas:", notes);
+        // Clear the input fields after saving
+        setTitle("");
+        setContent("");
 
         // Redirect or close the modal after saving
         router.push("/notes");
