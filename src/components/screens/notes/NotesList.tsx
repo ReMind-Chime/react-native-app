@@ -38,6 +38,7 @@ export function NoteComponent({note}: { note: Note }) {
             }
         });
         console.log("Nota eliminada:", noteId);
+        router.replace(`/notes`);
     }
 
     return (
@@ -92,7 +93,7 @@ export function NotesList({notes}: NoteListProps) {
     }
 
     return (
-        <View className={'flex-1 px-8 mb-[9rem]'}>
+        <View className={'flex-1 px-6 mb-[9rem] w-full'}>
             <FlatList
                 data={notes}
                 keyExtractor={(item) => item.id}
